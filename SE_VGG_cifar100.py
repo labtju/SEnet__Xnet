@@ -123,10 +123,10 @@ transforms = transforms.Compose([
 
 def getData():                    
     train_set = tv.datasets.CIFAR100(root='./data_cifar100/', train=True, transform=transforms, download=True)
-    train_loader = DataLoader(train_set, batch_size=25, shuffle=True)
+    train_loader = DataLoader(train_set, batch_size=32, shuffle=True)
   
     test_set = tv.datasets.CIFAR100(root='./data_cifar100/', train=False, transform=transforms, download=True)
-    test_loader = torch.utils.data.DataLoader(test_set, batch_size = 25, shuffle = False)
+    test_loader = torch.utils.data.DataLoader(test_set, batch_size = 32, shuffle = False)
     classes = ('plane','car','bird','cat','deer','dog','frog','horse','ship','truck')               #    这个要按顺序直接定义
     return train_loader, test_loader, classes
 
