@@ -7,7 +7,7 @@ import torchvision.transforms as transforms
 from torch.utils.data import DataLoader
 from torch import optim
 
-MAX_EPOCH = 4
+MAX_EPOCH = 5
 
 
 transforms = transforms.Compose([transforms.ToTensor()])
