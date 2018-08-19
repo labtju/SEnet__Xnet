@@ -16,10 +16,10 @@ transforms = transforms.Compose([transforms.ToTensor()])
 def getData():                    #  数据
     
     train_set = tv.datasets.CIFAR100(root='./data_cifar100/', train=True, transform=transforms, download=True)
-    train_loader = DataLoader(train_set, batch_size=25, shuffle=True)
+    train_loader = DataLoader(train_set, batch_size=32, shuffle=True)
   
     test_set = tv.datasets.CIFAR100(root='./data_cifar100/', train=False, transform=transforms, download=True)
-    test_loader = torch.utils.data.DataLoader(test_set, batch_size = 25, shuffle = False)
+    test_loader = torch.utils.data.DataLoader(test_set, batch_size = 32, shuffle = False)
  
     classes = ('plane','car','bird','cat','deer','dog','frog','horse','ship','truck')           
     return train_loader, test_loader, classes
@@ -83,11 +83,11 @@ class ResNet(nn.Module):
         out = self.linear(out)
         return out
 
-def ResNet18():
-    return ResNet(BasicBlock, [2,2,2,2])
+def ResNet34():
+    return ResNet(BasicBlock, [3,6,3,2])
 
 def train():                                                               #    训练
-    net = ResNet18()
+    net = ResNet34()
     net = net.cuda()
     train_dataloader, test_dataloader, classes = getData()                                          
     ceterion = nn.CrossEntropyLoss()                                                               

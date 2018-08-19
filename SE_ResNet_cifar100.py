@@ -113,11 +113,11 @@ class ResNet(nn.Module):
         out = self.linear(out)
         return out
 
-def ResNet18():
-    return ResNet(BasicBlock, [2,2,2,2])
+def ResNet34():
+    return ResNet(BasicBlock, [3,2,3,6])
 
 def train():                                                               #    训练
-    net = ResNet18()
+    net = ResNet34()
     net = net.cuda()
     train_dataloader, test_dataloader, classes = getData()                                          
     ceterion = nn.CrossEntropyLoss()                                                               
